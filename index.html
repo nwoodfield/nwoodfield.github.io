@@ -8,23 +8,23 @@
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
-	$(document).ready(function(){
+	$(document).ready(function(){ <!-- JavaScript functions to handle operations of buttons and arithmetic -->
 		
-		var operand1 = 0;
+		var operand1 = 0;  <!-- Operand values store numbers to be calculated by the calculator. Operation var tells calculator which type of operation to perform -->
 		var operand2 = 0;
 		var operation = 0;
 		var answer = 0;
 		
-		$('#0,#1,#2,#3,#4,#5,#6,#7,#8,#9,#dot').click(function(){
+		$('#0,#1,#2,#3,#4,#5,#6,#7,#8,#9,#dot').click(function(){  <!-- Number button functions input numbers to text field as displayed on the calculator -->
 			var v = $(this).val();
 			$('#result').val($('#result').val() + v);
 		});
 		
-		$('#clear').click(function(){
+		$('#clear').click(function(){  <!-- Clear button nulls out display field in calculator -->
 			$('#result').val("");
 		});
 		
-		$('#add, #minus, #divide, #times').click(function(){
+		$('#add, #minus, #divide, #times').click(function(){  <!-- Operation buttons (plus, minus, divide, multiply) store the first operand upon clicking, change operation var based on the corresponding operation, and clear the display field for the next input -->
 			operand1 = Number($('#result').val());
 			$('#result').val("");
 			if($(this).attr('id') == 'add'){
@@ -39,7 +39,7 @@
 		});
 		
 		
-		$('#equal').click(function($operation){
+		$('#equal').click(function($operation){  <!-- Equal button stores value of second operand, performs the operation as per recorded, and displays the answer. -->
 			operand2 = Number($('#result').val());
 			$('#result').val("");
 			if(operation == 0){
@@ -60,7 +60,7 @@
 </script>
 </head>
 <body>
-	<div data-role="page" id="pageone" data-theme="a">
+	<div data-role="page" id="pageone" data-theme="a">  <!-- Calculator layout -->
 		<table>
 			<tr>
 				<td colspan="2"><input type="text" id="result" value=""></td>
